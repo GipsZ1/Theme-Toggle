@@ -1,0 +1,83 @@
+body {
+  --main-color: orangered;
+  --main-bg: #fff;
+  --color: black;
+  --btn-text-color: var(--main-bg);
+  --transition-delay: 1s;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+
+  background: var(--main-bg);
+  color: var(--color);
+  transition: var(--transition-delay);
+}
+body.dark {
+  --main-color: #d0d066;
+  --main-bg: #333;
+  --color: white;
+}
+.sunmoon {
+  --rotate: 0;
+  position: absolute;
+  top: 0;
+  height: 200vmin;
+  pointer-events: none;
+  transform: rotate(var(--rotation));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--transition-delay);
+}
+.theme .icon {
+  margin-right: 0.8em;
+}
+.theme {
+  background: var(--main-color);
+  color: var(--btn-text-color);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 0.8em;
+  outline: none;
+  justify-content: center;
+  transition: var(--transition-delay);
+  transform: scale(1);
+}
+.theme:hover {
+  transform: scale(1.1);
+}
+.dark .sunmoon {
+  --rotation: 180deg;
+}
+.sun,
+.moon {
+  position: absolute;
+  transition: opacity, fill, var(--transition-delay);
+  width: 2em;
+  height: 2em;
+  fill: var(--main-color);
+}
+
+.sun {
+  top: 5%;
+}
+.dark .sun {
+  opacity: 0;
+}
+.moon {
+  bottom: 5%;
+  opacity: 0;
+  transform: rotate(180deg);
+}
+.dark .moon {
+  opacity: 1;
+}
